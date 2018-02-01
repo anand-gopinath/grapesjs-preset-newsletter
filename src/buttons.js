@@ -18,12 +18,15 @@ define(function() {
       command: opt.cmdOpenImport,
       attributes: {[tltAttr]: opt.modalTitleImport},
     });
-    pnm.addButton('options', {
-      id: opt.cmdTglImages,
-      className: 'fa fa-warning',
-      command: opt.cmdTglImages,
-      attributes: {[tltAttr]: opt.cmtTglImagesLabel},
-    });
+    // Removed unused code
+
+    // pnm.addButton('options', {
+    //   id: opt.cmdTglImages,
+    //   className: 'fa fa-warning',
+    //   command: opt.cmdTglImages,
+    //   attributes: {[tltAttr]: opt.cmtTglImagesLabel},
+    // });
+
     if(optPanel){
       // Fix tooltip position
       var cmdBtns = optPanel.get('buttons');
@@ -32,9 +35,10 @@ define(function() {
         attrs[tltPosAttr] = 'bottom';
         btn.set('attributes', attrs);
       });
-      // Remove preview
-      let prvBtn = pnm.addButton('options', 'preview');
-      prvBtn && cmdBtns.remove(prvBtn);
+      // Enabled preview model
+      
+      // let prvBtn = pnm.addButton('options', 'preview');
+      // prvBtn && cmdBtns.remove(prvBtn);
     }
     // Clean commands panel
     let cmdPanel = pnm.getPanel('commands');

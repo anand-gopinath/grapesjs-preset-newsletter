@@ -1,3 +1,7 @@
+/**
+ * Author : Anand N G
+ * Modified : Feb 1 2018
+ */
 export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
@@ -43,50 +47,55 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
       padding: '5px 5px 5px 5px',
       width: '100%'
     },
-    sect100BlkLabel: '1 Section',
-    sect50BlkLabel: '1/2 Section',
-    sect30BlkLabel: '1/3 Section',
-    sect37BlkLabel: '3/7 Section',
+    sect100BlkLabel: '1 Column',
+    sect50BlkLabel: '2 Column',
+    sect30BlkLabel: '3 Column',
+    sect37BlkLabel: '2/3 Column',
     buttonBlkLabel: 'Button',
     dividerBlkLabel: 'Divider',
     textBlkLabel: 'Text',
     textSectionBlkLabel: 'Text Section',
     imageBlkLabel: 'Image',
+    videoBlkLabel: 'Video',
     quoteBlkLabel: 'Quote',
     linkBlkLabel: 'Link',
     linkBlockBlkLabel: 'Link Block',
     gridItemsBlkLabel: 'Grid Items',
     listItemsBlkLabel: 'List Items',
     assetsModalTitle: c.assetsModalTitle || 'Select image',
+    /**
+     * Removed unused styles
+     */
     styleManagerSectors: [{
         name: 'Dimension',
-        open: false,
-        buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
-        properties:[{
-          property: 'margin',
-          properties:[
-            { name: 'Top', property: 'margin-top'},
-            { name: 'Left', property: 'margin-left'},
-            { name: 'Right', property: 'margin-right'},
-            { name: 'Bottom', property: 'margin-bottom'}
-          ],
-        },{
-          property  : 'padding',
-          properties:[
-            { name: 'Top', property: 'padding-top'},
-            { name: 'Right', property: 'padding-right'},
-            { name: 'Bottom', property: 'padding-bottom'},
-            { name: 'Left', property: 'padding-left'}
-          ],
-        }],
-      },{
+        open: true,
+        buildProps: ['width', 'height', 'max-width', 'min-height'], //'margin', 'padding'
+        // properties:[{
+        //   property: 'margin',
+        //   properties:[
+        //     { name: 'Top', property: 'margin-top'},
+        //     { name: 'Left', property: 'margin-left'},
+        //     { name: 'Right', property: 'margin-right'},
+        //     { name: 'Bottom', property: 'margin-bottom'}
+        //   ],
+        // },{
+        //   property  : 'padding',
+        //   properties:[
+        //     { name: 'Top', property: 'padding-top'},
+        //     { name: 'Right', property: 'padding-right'},
+        //     { name: 'Bottom', property: 'padding-bottom'},
+        //     { name: 'Left', property: 'padding-left'}
+        //   ],
+        // }],
+      },
+      {
         name: 'Typography',
         open: false,
-        buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'text-decoration', 'font-style', 'vertical-align', 'text-shadow'],
+        buildProps: ['font-family', 'font-size', 'text-align', 'color'], //'line-height', 'font-weight', 'letter-spacing'  //'text-decoration', 'font-style', 'vertical-align', 'text-shadow'
         properties:[
-          { name: 'Font', property: 'font-family'},
-          { name: 'Weight', property: 'font-weight'},
-          { name: 'Font color', property: 'color'},
+          // { name: 'Font', property: 'font-family'},
+          // { name: 'Weight', property: 'font-weight'},
+          // { name: 'Font color', property: 'color'},
           {
             property: 'text-align',
             type: 'radio',
@@ -97,66 +106,71 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
               { value: 'right', name: 'Right', className: 'fa fa-align-right'},
               { value: 'justify', name: 'Justify', className: 'fa fa-align-justify'}
             ],
-          },{
-            property: 'text-decoration',
-            type: 'radio',
-            defaults: 'none',
-            list: [
-              { value: 'none', name: 'None', className: 'fa fa-times'},
-              { value: 'underline', name: 'underline', className: 'fa fa-underline' },
-              { value: 'line-through', name: 'Line-through', className: 'fa fa-strikethrough'}
-            ],
-          },{
-            property: 'font-style',
-            type: 'radio',
-            defaults: 'normal',
-            list: [
-              { value: 'normal', name: 'Normal', className: 'fa fa-font'},
-              { value: 'italic', name: 'Italic', className: 'fa fa-italic'}
-            ],
-          },{
-            property: 'vertical-align',
-            type: 'select',
-            defaults: 'baseline',
-            list: [
-              { value: 'baseline'},
-              { value: 'top'},
-              { value: 'middle'},
-              { value: 'bottom'}
-            ],
-          },{
-            property: 'text-shadow',
-            properties: [
-              { name: 'X position', property: 'text-shadow-h'},
-              { name: 'Y position', property: 'text-shadow-v'},
-              { name: 'Blur', property: 'text-shadow-blur'},
-              { name: 'Color', property: 'text-shadow-color'}
-            ],
-        }],
-      },{
+          },
+        //   {
+        //     property: 'text-decoration',
+        //     type: 'radio',
+        //     defaults: 'none',
+        //     list: [
+        //       { value: 'none', name: 'None', className: 'fa fa-times'},
+        //       { value: 'underline', name: 'underline', className: 'fa fa-underline' },
+        //       { value: 'line-through', name: 'Line-through', className: 'fa fa-strikethrough'}
+        //     ],
+        //   },{
+        //     property: 'font-style',
+        //     type: 'radio',
+        //     defaults: 'normal',
+        //     list: [
+        //       { value: 'normal', name: 'Normal', className: 'fa fa-font'},
+        //       { value: 'italic', name: 'Italic', className: 'fa fa-italic'}
+        //     ],
+        //   },{
+        //     property: 'vertical-align',
+        //     type: 'select',
+        //     defaults: 'baseline',
+        //     list: [
+        //       { value: 'baseline'},
+        //       { value: 'top'},
+        //       { value: 'middle'},
+        //       { value: 'bottom'}
+        //     ],
+        //   },{
+        //     property: 'text-shadow',
+        //     properties: [
+        //       { name: 'X position', property: 'text-shadow-h'},
+        //       { name: 'Y position', property: 'text-shadow-v'},
+        //       { name: 'Blur', property: 'text-shadow-blur'},
+        //       { name: 'Color', property: 'text-shadow-color'}
+        //     ],
+        // }
+        ],
+      },
+      {
         name: 'Decorations',
         open: false,
-        buildProps: ['background-color', 'border-collapse', 'border-radius', 'border', 'background'],
-        properties: [{
+        buildProps: ['background-color'], //'border-collapse', 'border-radius', 'border', 'background'
+        properties: [
+        {
           property: 'background-color',
           name: 'Background',
-        },{
-          property: 'border-radius',
-          properties  : [
-            { name: 'Top', property: 'border-top-left-radius'},
-            { name: 'Right', property: 'border-top-right-radius'},
-            { name: 'Bottom', property: 'border-bottom-left-radius'},
-            { name: 'Left', property: 'border-bottom-right-radius'}
-          ],
-        },{
-          property: 'border-collapse',
-          type: 'radio',
-          defaults: 'separate',
-          list: [
-            { value: 'separate', name: 'No'},
-            { value: 'collapse', name: 'Yes'}
-          ],
         },
+        // {
+        //   property: 'border-radius',
+        //   properties  : [
+        //     { name: 'Top', property: 'border-top-left-radius'},
+        //     { name: 'Right', property: 'border-top-right-radius'},
+        //     { name: 'Bottom', property: 'border-bottom-left-radius'},
+        //     { name: 'Left', property: 'border-bottom-right-radius'}
+        //   ],
+        // },{
+        //   property: 'border-collapse',
+        //   type: 'radio',
+        //   defaults: 'separate',
+        //   list: [
+        //     { value: 'separate', name: 'No'},
+        //     { value: 'collapse', name: 'Yes'}
+        //   ],
+        // },
         /*
         { // Too much low support
           property: 'box-shadow',
@@ -168,23 +182,25 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
             { name: 'Color', property: 'box-shadow-color'},
             { name: 'Shadow type', property: 'box-shadow-type'}
           ],
-        },*/{
-          property: 'border',
-          properties: [
-            { name: 'Width', property: 'border-width', defaults: '0'},
-            { name: 'Style', property: 'border-style'},
-            { name: 'Color', property: 'border-color'},
-          ],
-        },{
-          property: 'background',
-          properties: [
-            { name: 'Image', property: 'background-image'},
-            { name: 'Repeat', property:   'background-repeat'},
-            { name: 'Position', property: 'background-position'},
-            { name: 'Attachment', property: 'background-attachment'},
-            { name: 'Size', property: 'background-size'}
-          ],
-        }],
+        },*/
+        // {
+        //   property: 'border',
+        //   properties: [
+        //     { name: 'Width', property: 'border-width', defaults: '0'},
+        //     { name: 'Style', property: 'border-style'},
+        //     { name: 'Color', property: 'border-color'},
+        //   ],
+        // },{
+        //   property: 'background',
+        //   properties: [
+        //     { name: 'Image', property: 'background-image'},
+        //     { name: 'Repeat', property:   'background-repeat'},
+        //     { name: 'Position', property: 'background-position'},
+        //     { name: 'Attachment', property: 'background-attachment'},
+        //     { name: 'Size', property: 'background-size'}
+        //   ],
+        // }
+        ],
       }]
   };
 
@@ -196,6 +212,22 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     if (!(name in c))
       c[name] = defaults[name];
   }
+
+  /**
+   * Removed unused title attributes.
+   */
+  
+  // const sm = document.getElementById('gjs-sm-sectors');
+  // const updateStyleManager = () => {
+  //     const model = editor.getSelected();
+  //     sm.style.display = model.getAttributes()['id'] ? 'block' : 'none';
+  // }
+
+  // // Triggers on component change
+  // editor.on('component:selected', updateStyleManager);
+
+  // // Triggers when you update component's attributes
+  // editor.on('component:update:attributes', updateStyleManager);
 
   // Add commands
   let importCommands = require('./commands');
@@ -263,10 +295,14 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     openTmBtn.set('attributes', {
       title: defaults.openTmBtnTitle
     });
-    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
-    openLayersBtn.set('attributes', {
-      title: defaults.openLayersBtnTitle
-    });
+    /**
+     * Removed title setting for "Layers" - block
+     */
+    // var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    // openLayersBtn.set('attributes', {
+    //   title: defaults.openLayersBtnTitle
+    // });
+    
     // Open block manager
     var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
       openBlocksBtn.set('attributes', {

@@ -4,11 +4,13 @@ define(function() {
     let cmdm = editor.Commands;
     let importCommand = require('./openImportCommand');
     let exportCommand = require('./openExportCommand');
-    let tglImagesCommand = require('./toggleImagesCommand');
+    let saveTemplateCommand = require('./saveTemplateCommand');
+    // let tglImagesCommand = require('./toggleImagesCommand');
     cmdm.add(opt.cmdOpenImport, importCommand(opt));
-    cmdm.add(opt.cmdTglImages, tglImagesCommand(opt));
+    // cmdm.add(opt.cmdTglImages, tglImagesCommand(opt));
+    cmdm.add('save-template', saveTemplateCommand(opt));
+    
     var panelManager = editor.Panels;
-
     /**
      * Unused panel layers are removed and adding some of them
      */

@@ -18,6 +18,16 @@ define(function() {
       command: opt.cmdOpenImport,
       attributes: {[tltAttr]: opt.modalTitleImport},
     });
+
+    // Adding Save template buttion
+    pnm.addButton('options', {
+      id: 'save-template',
+      className: 'fa fa-save',
+      command: 'save-template',
+      attributes: {title: 'save template'},
+    });
+
+
     // Removed unused code
 
     // pnm.addButton('options', {

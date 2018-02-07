@@ -13,54 +13,11 @@ define(function() {
       cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
     }
     bm.getAll().reset();
-    bm.add('sect100', {
-      label: opt.sect100BlkLabel,
-      category: 'Structure' || opt.categoryLabel,
-      attributes: {class:'gjs-fonts gjs-f-b1'},
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr}"></td>
-        </tr>
-        </table>`,
-    });
-    bm.add('sect50', {
-      label: opt.sect50BlkLabel,
-      category: 'Structure' || opt.categoryLabel,
-      attributes: {class:'gjs-fonts gjs-f-b2'},
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width: 50%"></td>
-          <td style="${cellStyleStr} width: 50%"></td>
-        </tr>
-        </table>`,
-    });
-    bm.add('sect30', {
-      label: opt.sect30BlkLabel,
-      category: 'Structure' || opt.categoryLabel,
-      attributes: {class:'gjs-fonts gjs-f-b3'},
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-          <td style="${cellStyleStr} width: 33.3333%"></td>
-        </tr>
-        </table>`,
-    });
-    bm.add('sect37', {
-      label: opt.sect37BlkLabel,
-      category: 'Structure' || opt.categoryLabel,
-      attributes: {class:'gjs-fonts gjs-f-b37'},
-      content: `<table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr} width:30%"></td>
-          <td style="${cellStyleStr} width:70%"></td>
-        </tr>
-        </table>`,
-    });
+    
     bm.add('button', {
       label: opt.buttonBlkLabel,
       category: 'Content' || opt.categoryLabel,
-      content: '<a class="button">Button</a>',
+      content: '<a class="button" style="background-color:#F7B39F;padding:12px 25px;color: #140f0f;margin:5px;display:inline-block;">Button</a>',
       attributes: {class:'gjs-fonts gjs-f-button'}
     });
     bm.add('divider', {
@@ -150,6 +107,53 @@ define(function() {
           'min-width': '50px'
         }
       },
+    });
+
+    //
+
+    bm.add('sect100', {
+      label: opt.sect100BlkLabel,
+      category: 'Structure' || opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-b1'},
+      content: `<table style="${tableStyleStr}">
+        <tr>
+          <td style="${cellStyleStr}"></td>
+        </tr>
+        </table>`,
+    });
+    bm.add('sect50', {
+      label: opt.sect50BlkLabel,
+      category: 'Structure' || opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-b2'},
+      content: `<table style="${tableStyleStr}">
+        <tr>
+          <td style="${cellStyleStr} width: 50%"></td>
+          <td style="${cellStyleStr} width: 50%"></td>
+        </tr>
+        </table>`,
+    });
+    bm.add('sect30', {
+      label: opt.sect30BlkLabel,
+      category: 'Structure' || opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-b3'},
+      content: `<table style="${tableStyleStr}">
+        <tr>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
+          <td style="${cellStyleStr} width: 33.3333%"></td>
+        </tr>
+        </table>`,
+    });
+    bm.add('sect37', {
+      label: opt.sect37BlkLabel,
+      category: 'Structure' || opt.categoryLabel,
+      attributes: {class:'gjs-fonts gjs-f-b37'},
+      content: `<table style="${tableStyleStr}">
+        <tr>
+          <td style="${cellStyleStr} width:30%"></td>
+          <td style="${cellStyleStr} width:70%"></td>
+        </tr>
+        </table>`,
     });
   };
 })

@@ -245,6 +245,9 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let importStyle = require('./style');
   importStyle(c);
 
+
+ 
+
   // Set default template if the canvas is empty
   if(!editor.getHtml() && c.defaultTemplate){
     editor.setComponents(c.defaultTemplate);
@@ -255,13 +258,13 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 
   // On component change show the Style Manager
   editor.on('change:selectedComponent', function() {
-    var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    let openLayersBtn = editor.Panels.getButton('views', 'open-layers');
 
     // Don't switch when the Layer Manager is on or
     // there is no selected component
     if((!openLayersBtn || !openLayersBtn.get('active')) &&
       editor.editor.get('selectedComponent')){
-      var openSmBtn = editor.Panels.getButton('views', 'open-sm');
+      let openSmBtn = editor.Panels.getButton('views', 'open-sm');
       openSmBtn.set('attributes',{ title:defaults.openSmBtnTitle });
       openSmBtn && openSmBtn.set('active', 1);
     }
@@ -275,40 +278,47 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
 
   // Do stuff on load
   editor.on('load', function() {
-    var expTplBtn = editor.Panels.getButton('options', 'export-template');
+    editor.DomComponents.getComponent("open-sm").attributes.content = "hai"
+
+    let expTplBtn = editor.Panels.getButton('options', 'export-template');
     expTplBtn.set('attributes', {
       title: defaults.expTplBtnTitle
     });
-    var fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
+    let fullScrBtn = editor.Panels.getButton('options', 'fullscreen');
     fullScrBtn.set('attributes', {
       title: defaults.fullScrBtnTitle
     });
-    var swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
+    let swichtVwBtn = editor.Panels.getButton('options', 'sw-visibility');
     swichtVwBtn.set('attributes', {
       title: defaults.swichtVwBtnTitle
     });
-    var openSmBtn = editor.Panels.getButton('views', 'open-sm');
+    let openSmBtn = editor.Panels.getButton('views', 'open-sm');
     openSmBtn.set('attributes', {
       title: defaults.openSmBtnTitle
     });
-    var openTmBtn = editor.Panels.getButton('views', 'open-tm');
+    let openTmBtn = editor.Panels.getButton('views', 'open-tm');
     openTmBtn.set('attributes', {
       title: defaults.openTmBtnTitle
     });
     /**
      * Removed title setting for "Layers" - block
      */
-    // var openLayersBtn = editor.Panels.getButton('views', 'open-layers');
+    // let openLayersBtn = editor.Panels.getButton('views', 'open-layers');
     // openLayersBtn.set('attributes', {
     //   title: defaults.openLayersBtnTitle
     // });
-    
+
     // Open block manager
-    var openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
+    let openBlocksBtn = editor.Panels.getButton('views', 'open-blocks');
       openBlocksBtn.set('attributes', {
       title: defaults.openBlocksBtnTitle
     });
     openBlocksBtn && openBlocksBtn.set('active', 1);
     //editor.trigger('change:canvasOffset');
+
+    let importCells = require('./cells');
+    importCells(c);
+
+    
   });
 });

@@ -74,6 +74,8 @@
 .#{$app-prefix}export-label {
   margin-bottom: 10px;
   font-size: 13px;
+  text-align: right;
+  padding: 5px 10px;
 }
 
 .#{$app-prefix}mdl-dialog .#{$app-prefix}btn-import {
@@ -286,5 +288,28 @@
 }
 .#{$app-prefix}sm-sector .#{$app-prefix}sm-properties, .#{$app-prefix}clm-tags .#{$app-prefix}sm-properties {
   padding: 0 15px;
+}
+.#{$app-prefix}display-flex {
+  display: flex;
+}
+.#{$app-prefix}choose-templates {
+  width: 50%;
+  height: 450px;
+  border: 1px solid gray;
+}
+.#{$app-prefix}choose-template-label {
+  margin-bottom: 10px;
+  font-size: 13px;
+  padding: 5px 0;
+  width: 50%;
+}
+.#{$app-prefix}code-viewer-style {
+  width:50%;
+  border: 1px solid gray;
+  margin: 0 10px;
+}
+.#{$app-prefix}template-divs.active{
+    border:2px dashed #03A9F4 !important;
+    font-weight: 600;
 }
 /** End **/

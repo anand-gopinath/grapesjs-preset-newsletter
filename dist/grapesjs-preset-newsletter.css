@@ -65,7 +65,9 @@
 .gjs-import-label,
 .gjs-export-label {
   margin-bottom: 10px;
-  font-size: 13px; }
+  font-size: 13px;
+  text-align: right;
+  padding: 5px 10px; }
 
 .gjs-mdl-dialog .gjs-btn-import {
   margin-top: 10px; }
@@ -245,5 +247,28 @@
 
 .gjs-sm-sector .gjs-sm-properties, .gjs-clm-tags .gjs-sm-properties {
   padding: 0 15px; }
+
+.gjs-display-flex {
+  display: flex; }
+
+.gjs-choose-templates {
+  width: 50%;
+  height: 450px;
+  border: 1px solid gray; }
+
+.gjs-choose-template-label {
+  margin-bottom: 10px;
+  font-size: 13px;
+  padding: 5px 0;
+  width: 50%; }
+
+.gjs-code-viewer-style {
+  width: 50%;
+  border: 1px solid gray;
+  margin: 0 10px; }
+
+.gjs-template-divs.active {
+  border: 2px dashed #03A9F4 !important;
+  font-weight: 600; }
 
 /** End **/

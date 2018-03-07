@@ -56,7 +56,7 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     textBlkLabel: 'Text',
     textSectionBlkLabel: 'Text Section',
     imageBlkLabel: 'Image',
-    videoBlkLabel: 'Video',
+    // videoBlkLabel: 'Video',
     quoteBlkLabel: 'Quote',
     linkBlkLabel: 'Link',
     linkBlockBlkLabel: 'Link Block',

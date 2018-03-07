@@ -63,19 +63,19 @@ define(function() {
         activeOnRender: 1
       },
     });
-    bm.add('video', {
-      label: opt.videoBlkLabel,
-      category: 'Content' || opt.categoryLabel,
-      attributes: {class:'fa fa-youtube-play'},
-      content: {
-        type: 'video',
-        src: 'img/video2.webm',
-        style: {
-          height: '350px',
-          width: '615px',
-        }
-      },
-    });
+    // bm.add('video', {
+    //   label: opt.videoBlkLabel,
+    //   category: 'Content' || opt.categoryLabel,
+    //   attributes: {class:'fa fa-youtube-play'},
+    //   content: {
+    //     type: 'video',
+    //     src: 'img/video2.webm',
+    //     style: {
+    //       height: '350px',
+    //       width: '615px',
+    //     }
+    //   },
+    // });
     bm.add('quote', {
       label: opt.quoteBlkLabel,
       category: 'Content' || opt.categoryLabel,

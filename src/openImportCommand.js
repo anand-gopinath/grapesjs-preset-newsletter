@@ -47,29 +47,35 @@ define(function() {
 
         //Need to change lot and reduce code while taking editor feature
         function getTemplates() {
-          let allTemplates = JSON.parse(localStorage.getItem(storageManager.get("local").id+'allTemplates'));
           let wholeDiv = document.createElement('div');
           wholeDiv.className = "template-container";
-          wholeDiv.style = "display:flex;flex-wrap:wrap;max-height:440px;overflow:auto;"
-          allTemplates.forEach(template => {
-            let templateDiv = document.createElement('div');
-            templateDiv.className = pfx+"template-divs";
-            templateDiv.style= "width:100px;height:100px;border:2px dashed gray;margin:10px;display: flex;align-items: center;flex-direction: unset;justify-content: center;background-color:#2196f330;";
-            templateDiv.id = Object.keys(template)[0];
-            templateDiv.innerHTML = ""+ Object.keys(template)[0];
-            wholeDiv.appendChild(templateDiv);
-            wholeDiv.onclick = (ev) => {
-              var container = ev.target.closest(".template-container");
-              var children = container.getElementsByClassName(pfx+"template-divs")
-              if(children.length > 0) {
-                for(var i=0;i<children.length;i++) {
-                  let child = children[i];
-                  child.classList.remove("active");
+          wholeDiv.style = "display:flex;flex-wrap:wrap;max-height:440px;overflow:auto;";
+
+          let templateOfLocStore = storageManager.get("local").id+'allTemplates';
+          if(localStorage.getItem(templateOfLocStore)) {
+            let allTemplates = JSON.parse(localStorage.getItem(templateOfLocStore));
+            allTemplates.forEach(template => {
+              let templateDiv = document.createElement('div');
+              templateDiv.className = pfx+"template-divs";
+              templateDiv.style= "width:100px;height:100px;border:2px dashed gray;margin:10px;display: flex;align-items: center;flex-direction: unset;justify-content: center;background-color:#2196f330;";
+              templateDiv.id = Object.keys(template)[0];
+              templateDiv.innerHTML = ""+ Object.keys(template)[0];
+              wholeDiv.appendChild(templateDiv);
+              wholeDiv.onclick = (ev) => {
+                var container = ev.target.closest(".template-container");
+                var children = container.getElementsByClassName(pfx+"template-divs")
+                if(children.length > 0) {
+                  for(var i=0;i<children.length;i++) {
+                    let child = children[i];
+                    child.classList.remove("active");
+                  }
                 }
-              }
-              ev.target.classList.add("active");
-            };
-          });
+                ev.target.classList.add("active");
+              };
+            });
+          } else {
+            wholeDiv.innerHTML = "<div style='text-align:center;padding:5px;'>Not available</div>"
+          }
           return wholeDiv;
         }
         

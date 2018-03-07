@@ -90,31 +90,31 @@
 .gjs-block:hover {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15); }
 
-#gjs-pn-views-container.gjs-pn-panel {
+.gjs-pn-views-container.gjs-pn-panel {
   padding: 39px 0 0; }
 
-#gjs-pn-views.gjs-pn-panel {
+.gjs-pn-views.gjs-pn-panel {
   padding: 0;
   border: none;
   left: 0;
   width: 20%; }
 
-#gjs-pn-views .gjs-pn-btn {
+.gjs-pn-views .gjs-pn-btn {
   margin: 0;
   height: 40px;
   padding: 10px;
   width: 34%;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3); }
 
-#gjs-pn-views .gjs-pn-active {
+.gjs-pn-views .gjs-pn-active {
   color: rgba(255, 255, 255, 0.9);
   border-bottom: 2px solid #00cc9a;
   border-radius: 0; }
 
-#gjs-pn-devices-c {
+.gjs-pn-devices-c {
   right: 65%; }
 
-#gjs-pn-options {
+.gjs-pn-options {
   right: 0 !important; }
 
 .gjs-sm-composite .gjs-sm-properties {
@@ -231,11 +231,11 @@
   left: auto;
   width: 80%; }
 
-.gjs-pn-panel#gjs-pn-views-container {
+.gjs-pn-panel.gjs-pn-views-container {
   left: 0;
   width: 20%; }
 
-.gjs-pn-panel#gjs-pn-commands, .gjs-pn-panelgjs-pn-options2 {
+.gjs-pn-panel.gjs-pn-commands, .gjs-pn-panelgjs-pn-options2 {
   left: 20%;
   padding: 5px; }
 
@@ -244,6 +244,9 @@
 
 .gjs-blocks-c {
   padding: 15px; }
+
+.gjs-pn-commands .gjs-pn-buttons {
+  display: inline-block; }
 
 .gjs-sm-sector .gjs-sm-properties, .gjs-clm-tags .gjs-sm-properties {
   padding: 0 15px; }
@@ -270,5 +273,9 @@
 .gjs-template-divs.active {
   border: 2px dashed #03A9F4 !important;
   font-weight: 600; }
+
+.gjs-two-color, .gjs-one-bg {
+  color: #555;
+  background-color: #F5F4F5; }
 
 /** End **/

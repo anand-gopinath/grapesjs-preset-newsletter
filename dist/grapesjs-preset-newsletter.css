@@ -236,7 +236,7 @@
   width: 20%; }
 
 .gjs-pn-panel.gjs-pn-commands, .gjs-pn-panelgjs-pn-options2 {
-  left: 20%;
+  left: 15%;
   padding: 5px; }
 
 .gjs-field {
@@ -277,5 +277,26 @@
 .gjs-two-color, .gjs-one-bg {
   color: #555;
   background-color: #F5F4F5; }
+
+/* Badge - body, cell, text - Kind of rounded definition showing in left corner */
+.gjs-com-badge, .gjs-com-badge-red, .gjs-badge {
+  background-color: #1fcda2 !important;
+  border-radius: 15px;
+  padding: 5px 10px; }
+
+/* Highlighter - When hover on any content in grapesjs */
+.gjs-cv-canvas .gjs-highlighter, .gjs-cv-canvas .gjs-highlighter-sel {
+  outline: 2px dashed #1fcda2 !important;
+  outline-offset: -2px; }
+
+/* Toolbar - Drag, delete and others */
+.gjs-toolbar {
+  background-color: #9E9E9E;
+  color: #252222;
+  border-radius: 15px; }
+
+/* Moving to parent icons has been disabled */
+.gjs-toolbar .fa-arrow-up {
+  display: none; }
 
 /** End **/

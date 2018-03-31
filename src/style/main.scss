@@ -277,7 +277,7 @@
   width: 20%;
 }
 .#{$app-prefix}pn-panel.#{$app-prefix}pn-commands, .#{$app-prefix}pn-panel#{$app-prefix}pn-options2 {
-  left: 20%;
+  left: 15%;
   padding: 5px;
 }
 .#{$app-prefix}field {
@@ -318,5 +318,28 @@
 .#{$app-prefix}two-color, .#{$app-prefix}one-bg {
   color: #555;
   background-color: $mainColor;
+}
+/* Badge - body, cell, text - Kind of rounded definition showing in left corner */
+.#{$app-prefix}com-badge, .#{$app-prefix}com-badge-red, .#{$app-prefix}badge {
+  background-color: #1fcda2 !important;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+/* Highlighter - When hover on any content in grapesjs */
+.#{$app-prefix}cv-canvas .#{$app-prefix}highlighter, .#{$app-prefix}cv-canvas .#{$app-prefix}highlighter-sel {
+  outline: 2px dashed #1fcda2 !important;
+  outline-offset: -2px;
+}
+/* Toolbar - Drag, delete and others */
+.#{$app-prefix}toolbar {
+  background-color: #9E9E9E;
+  color: #252222;
+  border-radius: 15px;
+}
+/* Moving to parent icons has been disabled */
+.#{$app-prefix}toolbar {
+  .fa-arrow-up {
+    display: none;
+  }  
 }
 /** End **/

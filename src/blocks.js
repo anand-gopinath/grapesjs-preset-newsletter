@@ -1,38 +1,46 @@
 define(function() {
   return (opt = {}) => {
     let mjmlData = require('./constants')();
-    let tableStyleStr = '';
-    let cellStyleStr = '';
+    // let tableStyleStr = '';
+    // let cellStyleStr = '';
     let editor = opt.editor;
-    let tableStyle = opt.tableStyle || {};
-    let cellStyle = opt.cellStyle || {};
+    // let tableStyle = opt.tableStyle || {};
+    // let cellStyle = opt.cellStyle || {};
     let bm = editor.BlockManager;
-    for (let prop in tableStyle){
-      tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
-    }
-    for (let prop in cellStyle){
-      cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
-    }
+    // for (let prop in tableStyle){
+    //   tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+    // }
+    // for (let prop in cellStyle){
+    //   cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
+    // }
     bm.getAll().reset();
     
-    bm.add('button', {
+    bm.add('mjmlButton', {
       label: opt.buttonBlkLabel,
       category: 'Content' || opt.categoryLabel,
-      // content: '<a class="button" style="background-color:#F7B39F;padding:12px 25px;color: #140f0f;margin:5px;display:inline-block;">Button</a>',
       attributes: {class:'gjs-fonts gjs-f-button'},
-      content: mjmlData.mjmlButton
+      content: {
+        type: "mjmlButton",
+        activeOnRender: 1,
+      }
     });
-    bm.add('divider', {
+    bm.add('mjmlDivider', {
       label: opt.dividerBlkLabel,
       category: 'Content' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-divider'},
-      content: mjmlData.mjmlDivider,
+      content: {
+        type: "mjmlDivider",
+        activeOnRender: 1,
+      }
     });
     bm.add('text', {
       label: opt.textBlkLabel,
       category: 'Content' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-text'},
-      content: mjmlData.mjmlText,
+      content: {
+        type: "mjmlText",
+        activeOnRender: 1,
+      }
     });
     // bm.add('text-sect', {
     //   label: opt.textSectionBlkLabel,
@@ -46,7 +54,10 @@ define(function() {
       label: opt.imageBlkLabel,
       category: 'Content' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-image'},
-      content: mjmlData.mjmlImage,
+      content: {
+        type: "mjmlImage",
+        activeOnRender: 1,
+      },
       activeOnRender: 1
 
     });
@@ -73,7 +84,10 @@ define(function() {
       label: opt.linkBlkLabel,
       category: 'Content' || opt.categoryLabel,
       attributes: {class:'fa fa-link'},
-      content: mjmlData.mjmlLink
+      content: {
+        type: "mjmlLink",
+        activeOnRender: 1,
+      },
       // content: {
       //   type: 'link',
       //   classes: ['mjComponentDrop', 'link-component'],
@@ -103,7 +117,9 @@ define(function() {
       label: opt.sect100BlkLabel,
       category: 'Structure' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-b1'},
-      content: mjmlData.mjml1Column,
+      content: {
+        type: "mjml1Column",
+      }
     });
 
     // mjml 2 column
@@ -111,7 +127,9 @@ define(function() {
       label: opt.sect50BlkLabel,
       category: 'Structure' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-b2'},
-      content: mjmlData.mjml2Column
+      content: {
+        type: "mjml2Column",
+      }
     })
 
     //mjml 3 column
@@ -119,7 +137,9 @@ define(function() {
       label: opt.sect30BlkLabel,
       category: 'Structure' || opt.categoryLabel,
       attributes: {class:'gjs-fonts gjs-f-b3'},
-      content: mjmlData.mjml3Columns
+      content: {
+        type: "mjml3Column",
+      }
     });
 
     //mjml 4 column
@@ -127,7 +147,9 @@ define(function() {
       label: opt.sect40BlkLabel,
       category: 'Structure' || opt.categoryLabel,
       attributes: {class:'fa fa-th '},
-      content: mjmlData.mjml4Columns
+      content: {
+        type: "mjml4Column",
+      }
     });
   };
 })

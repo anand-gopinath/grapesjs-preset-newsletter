@@ -7,9 +7,6 @@ define(function() {
     let defaultModel = defaultType.model;
     let defaultView = defaultType.view;
 
-    let textType = DomComponent.getType('text');
-    let textModel = textType.model;
-    let textView = textType.view;
     /**
      * Remove this in future
      * Currently the "data-highlightable" class has been rendered by Style tag from Grapesjs
@@ -29,8 +26,6 @@ define(function() {
      **/
     let wrapperCom = DomComponent.getComponent("wrapper")
     wrapperCom.attributes.droppable = ".mjColDrop";
-
-
 
     // editor.setStyle =" #outlook a { padding: 0 } .ReadMsgBody { width: 100% } .ExternalClass { width: 100% } .ExternalClass * { line-height: 100% } body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100% } table, td { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0 } img { border: 0; height: auto; line-height: 100%; outline: 0; text-decoration: none; -ms-interpolation-mode: bicubic } p { display: block; margin: 13px 0 }"+
     //   "@media only screen and (min-width:480px) { .mj-column-per-66 { width: 66.66666666666666%!important } .mj-column-per-33 { width: 33.33333333333333%!important } .mj-column-per-100 { width: 100%!important } .mj-column-per-50 { width: 50%!important } }";
@@ -67,79 +62,42 @@ define(function() {
         attributes: attributes
       });
     }
-
     let wrapper = DomComponent.getComponents()
-
     //Adding MJML style in header
     addComponent(wrapper, 'head', {} , true, mjmlData.mjmlStyle, {});
           
-    //Code for Custom component
-
+    /** Code for Custom components */
+    
+    // MJML Button
+    let mjmlButton = require('./components/mjmlButton');
+    mjmlButton(editor, mjmlData);
+    //MJML Divider
+    let mjmlDivider = require('./components/mjmlDivider');
+    mjmlDivider(editor, mjmlData);
+    // MJML Text
+    let mjmlText = require('./components/mjmlText');
+    mjmlText(editor, mjmlData);
+    // MJML Image
+    let mjmlImage = require('./components/mjmlImage');
+    mjmlImage(editor, mjmlData);
+    // MJML Link
+    let mjmlLink = require('./components/mjmlLink');
+    mjmlLink(editor, mjmlData);
+    // mjml1Column
+    let mjml1Column = require('./components/mjml1Column');
+    mjml1Column(editor, mjmlData);
+    // mjml2Column
+    let mjml2Column = require('./components/mjml2Column');
+    mjml2Column(editor, mjmlData);
+    // mjml3Column
+    let mjml3Column = require('./components/mjml3Column');
+    mjml3Column(editor, mjmlData);
+    // mjml4Column
+    let mjml4Column = require('./components/mjml4Column');
+    mjml4Column(editor, mjmlData);
+    
+    
     // let mjContainer = addComponent(wrapper, 'div', {} , true, mjmlData.mjmlCore2Col, {});
-    // const type= "mjText";
-    // //column 1 type
-    // DomComponent.addType(type, {
-    //   // Define the Model
-    //   model: defaultModel.extend({
-    //     // Extend default properties
-    //     defaults: Object.assign({}, defaultModel.prototype.defaults, {
-    //       // Can be dropped only inside `form` elements
-    //       // resizable: true,
-    //       highlightable: true,
-    //       selectable: true,
-    //       editable: true,
-    //       // toHTML: function() {
-    //       //   return '<div>My Custom Map</div>';
-    //       // },
-    //       // // Can't drop other elements inside it
-    //       // droppable: true,
-    //       // // Traits (Settings)
-    //       // traits: [],
-    //       // stylable: [
-    //       //   'background-color', 'vertical-align', 'width',
-    //       //   'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'border-bottom-left-radius', 'border-bottom-right-radius',
-    //       //   'border', 'border-width', 'border-style', 'border-color',
-    //       // ],
-    //     }),
-    //   },
-    //   // The second argument of .extend are static methods and we'll put inside our
-    //   // isComponent() method. As you're putting a new Component type on top of the stack,
-    //   // not declaring isComponent() might probably break stuff, especially if you extend
-    //   // the default one.
-    //   {
-    //     isComponent(el) {
-    //       if(el.tagName == type.toUpperCase()){
-    //         return {type};
-    //       }
-    //     },
-    //   }),
-    
-    //   // Define the View
-    //   view: defaultType.view.extend({
-    //     tagName: 'div',
-    //     // style: '',
-    //     // style
-    //     attributes: {
-    //       // 'data-type': 'text',
-    //       // 'data-highlightable': 1,
-    //       // 'data-editable': true      
-    //     },
-    //     // The render() should return 'this'
-    //     render: function () {
-    //       // Extend the original render method
-    //       this.el.style = 'cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;'
-    //       this.el.className = "mjComponentDrop"
-    //       this.el.innerHTML = 'Content';
-    //       // this.el.attributes = 'data-gjs-removable'
-    //       // <div class="mjComponentDrop" style="cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;">Content</div>
-    //       // textType.view.prototype.render.apply(this, arguments);
-    //       // this.el.placeholder = 'Text here'; // <- Doesn't affect the final HTML code
-    //       return  this;
-    //     },
-    //   }),
-    // });
-
-    
     // //Adding <table> tag
     // let Table = addComponent(mjContainerComponent, 'table', {'min-height':'150px', 'padding': '5px', 'width':'100%', 'height':'100%', 'background-color':'rgb(234, 236, 237)' }, false);
 

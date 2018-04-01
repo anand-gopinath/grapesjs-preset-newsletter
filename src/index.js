@@ -170,6 +170,8 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   // // Triggers when you update component's attributes
   // editor.on('component:update:attributes', updateStyleManager);
 
+  let mjmlData = require('./constants')();
+
   // Add commands
   let importCommands = require('./commands');
   importCommands(c);
@@ -211,6 +213,20 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     }
   });
 
+  // editor.on('component:styleUpdate:text-align', function(model) {
+  //   console.log("hai----in styleupdate", editor, model);
+  //   if(model.changed["style"] && model.changed.style.hasOwnProperty("text-align")) {
+  //     let $selectedComponent = editor.getSelected().view.$el[0];
+  //     let $buttonComponent = $selectedComponent.getElementsByClassName("mjmlButton");
+  //     //Button component
+  //     if($buttonComponent.length > 0) {
+  //       let alignment = model.changed.style["text-align"];
+  //       editor.getSelected().attributes.components.models[0].attributes.components.models[0].attributes.attributes.align = alignment;
+  //       // editor.getSelected().attributes.components.models[0].attributes.style.float = alignment;
+  //     }
+  //   }
+  // });
+  
   editor.on('run:open-assets', () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);

@@ -21,11 +21,11 @@ define(function () {
        * After enable each of them to "true" as per your need.
        */
       'mjmlButton':
-        '<div class="mjComponentDrop" data-gjs-droppable="false" data-gjs-badgable="false" data-gjs-highlightable="false">'+
+        '<div data-gjs-droppable="false" data-gjs-badgable="false" data-gjs-highlightable="false" data-gjs-selectable="false">'+
           //The below "tr" was not worked. so Introduced another parent "DIV"
           '<tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" >'+
           '   <td data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"  style="word-wrap:break-word;font-size:0;padding:10px 25px">'+
-          '      <table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"  role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;margin-top:3px;" align="center" border="0">'+
+          '      <table class="mjmlButton" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"  role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:separate;margin-top:3px;" align="center" border="0">'+
           '         <tbody data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >'+
           '            <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >'+
           //We can drop link instead normal text, So it will accept ".link-component"
@@ -40,7 +40,7 @@ define(function () {
         '</div>',
 
       'mjmlDivider':
-        '<div class="mjComponentDrop" data-gjs-badgable="false" data-gjs-highlightable="false" data-gjs-droppable="false" style="padding:10px 0;">'+
+        '<div data-gjs-badgable="false" data-gjs-highlightable="false" data-gjs-droppable="false" style="padding:10px 0;">'+
           '<tr>'+
           '   <td style="word-wrap:break-word;font-size:0;padding:10px 25px;padding-top:20px;padding-bottom:0;padding-right:0;padding-left:0">'+
           '      <p style="font-size:1px;margin:0 auto;border-top:2px solid #aaaaaa;width:100%"></p>'+
@@ -55,16 +55,16 @@ define(function () {
           '</tr>'+
         '</div>',
 
-      'mjmlText': '<div class="mjComponentDrop" data-gjs-badgable="false" data-gjs-highlightable="false" style="cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;">Sample Text</div>',
+      'mjmlText': '<div data-gjs-badgable="false" data-gjs-highlightable="false" style="cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;">Sample Text</div>',
         
       'mjmlLink':
-        '<div class="mjComponentDrop" data-gjs-badgable="false" data-gjs-highlightable="false" style="cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;">'+
+        '<div data-gjs-badgable="false" data-gjs-highlightable="false" style="cursor:auto;color:#000;font-family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;text-align:left;padding: 5px 10px;">'+
           '<a data-gjs-highlightable="false" href="" target="new" style="color:#2196F3;">Link</a>'+
         '</div>',
       
       //Currenlty this MJML image was not resizing and can resize out of box.
       'mjmlImage':
-        '<div class="mjComponentDrop" data-gjs-badgable="false" data-gjs-highlightable="false" data-gjs-droppable="false" style="padding:5px 0;">'+
+        '<div data-gjs-badgable="false" data-gjs-highlightable="false" data-gjs-droppable="false" style="padding:5px 0;">'+
           '<tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">'+
           '   <td data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"style="word-wrap:break-word;font-size:0;padding:10px 25px" align="left">'+
           '      <table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0" align="center" border="0">'+
@@ -84,11 +84,11 @@ define(function () {
       //MJML Converted Structure
       // 1 Column
       'mjml1Column': '<!--[if mso | IE]>' +
-        '<table class="mjColDrop" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">' +
+        '<table data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">' +
         '   <tr data-gjs-droppable="false" data-gjs-hoverable="false" data-gjs-selectable="false" data-gjs-highlightable="false">' +
         '      <td data-gjs-droppable="false" data-gjs-hoverable="false" data-gjs-selectable="false" data-gjs-highlightable="false" style="line-height:0px;mso-line-height-rule:exactly;">' +
         '         <![endif]-->' +
-        '         <div class="mjColDrop" data-gjs-highlightable="false" data-gjs-badgable="false" data-gjs-droppable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  style="margin:0 auto;max-width:600px">' +
+        '         <div data-gjs-highlightable="false" data-gjs-badgable="false" data-gjs-droppable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  style="margin:0 auto;max-width:600px">' +
         '            <table data-gjs-droppable="false" data-gjs-hoverable="false" data-gjs-selectable="false" data-gjs-highlightable="false" role="presentation" cellpadding="0" cellspacing="0" style="width:100%" align="center" border="0">' +
         '               <tbody data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >' +
         '                  <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >' +
@@ -130,11 +130,11 @@ define(function () {
       'mjml2Column':
 
         '<!--[if mso | IE]>' +
-        '<table class="mjColDrop" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">' +
+        '<table data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">' +
         '   <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">' +
         '      <td data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">' +
         '         <![endif]-->' +
-        '         <div class="mjColDrop" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  style="margin:0 auto;max-width:600px">' +
+        '         <div data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true"  style="margin:0 auto;max-width:600px">' +
         '            <table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" role="presentation" cellpadding="0" cellspacing="0" style="font-size:0;width:100%" align="center" border="0">' +
         '               <tbody data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">' +
         '                  <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">' +
@@ -188,13 +188,14 @@ define(function () {
         '</table>' +
         '<![endif]-->',
 
-      'mjml3Columns':
+        // class="mjColDrop" - temporarily removed
+      'mjml3Column':
         '<!--[if mso | IE]>'+
-        '<table class="mjColDrop" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">'+
+        '<table  data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">'+
         '   <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">'+
         '      <td data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" data-gjs-droppable="false" style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">'+
         '         <![endif]-->'+
-        '         <div class="mjColDrop" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="margin:0 auto;max-width:600px">'+
+        '         <div data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="margin:0 auto;max-width:600px">'+
         '            <table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" role="presentation" cellpadding="0" cellspacing="0" style="font-size:0;width:100%" align="center" border="0">'+
         '               <tbody data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >'+
         '                  <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" >'+
@@ -265,13 +266,13 @@ define(function () {
         '<![endif]-->',
 
       //4 Columns
-      'mjml4Columns':
+      'mjml4Column':
         '<!--[if mso | IE]>'+
-        '<table class="mjColDrop" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">'+
+        '<table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false"role="presentation" border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;">'+
         '   <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">'+
         '      <td data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">'+
         '         <![endif]-->'+
-        '         <div class="mjColDrop" data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="margin:0 auto;max-width:600px">'+
+        '         <div data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="true" data-gjs-selectable="true" style="margin:0 auto;max-width:600px">'+
         '            <table data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false" role="presentation" cellpadding="0" cellspacing="0" style="font-size:0;width:100%" align="center" border="0">'+
         '               <tbody data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">'+
         '                  <tr data-gjs-droppable="false" data-gjs-highlightable="false" data-gjs-hoverable="false" data-gjs-selectable="false">'+

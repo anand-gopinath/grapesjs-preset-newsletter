@@ -2,6 +2,7 @@ define(function() {
   const tltAttr = 'title';
   const tltPosAttr = 'data-tooltip-pos';
   let updateTooltip = (coll) => {
+    console.log("in update tooltip");
     coll.each((item) => {
       var attrs = item.get('attributes');
       attrs[tltPosAttr] = 'bottom';
@@ -12,20 +13,20 @@ define(function() {
     let editor = opt.editor;
     let pnm = editor.Panels;
     let optPanel = pnm.getPanel('options');
-    pnm.addButton('options', {
-      id: opt.cmdOpenImport,
-      className: 'fa fa-download',
-      command: opt.cmdOpenImport,
-      attributes: {[tltAttr]: opt.modalTitleImport},
-    });
+    // pnm.addButton('options', {
+    //   id: opt.cmdOpenImport,
+    //   className: 'fa fa-download',
+    //   command: opt.cmdOpenImport,
+    //   attributes: {[tltAttr]: opt.modalTitleImport},
+    // });
 
     // Adding Save template buttion
-    pnm.addButton('options', {
-      id: 'save-template',
-      className: 'fa fa-save',
-      command: 'save-template',
-      attributes: {title: 'save template'},
-    });
+    // pnm.addButton('options', {
+    //   id: 'save-template',
+    //   className: 'fa fa-save',
+    //   command: 'save-template',
+    //   attributes: {title: 'save template'},
+    // });
 
 
     // Removed unused code

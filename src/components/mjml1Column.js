@@ -11,24 +11,25 @@ define(function () {
       model: defaultModel.extend({
           // Extend default properties
           defaults: Object.assign({}, defaultModel.prototype.defaults, {
-            // resizable: true,
+            'custom-name': 'Column1',
             highlightable: false,
             selectable: false,
             editable: false,
             hoverable: false,
-            droppable: false,
+            name: 'mjml1Column',
             // // // Can't drop other elements inside it
             // droppable: true,
             // // Traits (Settings)
             classes: ['mjColDrop'],
             traits: [],
-            // stylable: [
-            //   'background-color', 'vertical-align', 'width',
-            //   'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'border-bottom-left-radius', 'border-bottom-right-radius',
-            //   'border', 'border-width', 'border-style', 'border-color',
-            // ],
-            components: mjmlData.mjml1Column
-
+            stylable: [
+              'background-color', 'vertical-align', 'text-align','font-size'
+            ],
+            components: mjmlData.mjml1Column,
+            // 'stylable-require': ['font-size'],
+            // Probably in your case you might want to hide the original property
+            // for this component
+            unstylable: ['background-color', 'font-family', 'color', 'font-weight', 'font-size', 'line-height'],
           }),
         },
         // The second argument of .extend are static methods and we'll put inside our

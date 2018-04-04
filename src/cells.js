@@ -27,26 +27,6 @@ define(function() {
     let wrapperCom = DomComponent.getComponent("wrapper")
     wrapperCom.attributes.droppable = ".mjColDrop";
 
-    // editor.setStyle =" #outlook a { padding: 0 } .ReadMsgBody { width: 100% } .ExternalClass { width: 100% } .ExternalClass * { line-height: 100% } body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100% } table, td { border-collapse: collapse; mso-table-lspace: 0; mso-table-rspace: 0 } img { border: 0; height: auto; line-height: 100%; outline: 0; text-decoration: none; -ms-interpolation-mode: bicubic } p { display: block; margin: 13px 0 }"+
-    //   "@media only screen and (min-width:480px) { .mj-column-per-66 { width: 66.66666666666666%!important } .mj-column-per-33 { width: 33.33333333333333%!important } .mj-column-per-100 { width: 100%!important } .mj-column-per-50 { width: 50%!important } }";
-
-    //Disabling body drag  and drop
-
-    // let body = DomComponent.getComponent("body")
-    // body.attributes.draggable = false
-    // body.attributes.droppable = true
-    // body.attributes.highlightable = false
-    // body.attributes.hoverable = false;
-    // body.attributes.selectable = false;
-    // body.attributes.layerable = false;
-
-
-    // let wrapperDom = DomComponent.getComponent("wrapper")
-    // wrapperDom.attributes.highlightable = false;
-    // let getComponentByModel = (component) => {
-    //   return component.models[0].get('components');
-    // }
-
     /** Common method to add new component */
     let addComponent = (rootComponent, tagName, style, droppable, content, attributes) => {
       return rootComponent.add({
@@ -83,6 +63,9 @@ define(function() {
     // MJML Link
     let mjmlLink = require('./components/mjmlLink');
     mjmlLink(editor, mjmlData);
+    // MJML ImageHeader
+    let mjmlHeader = require('./components/mjmlHeader');
+    mjmlHeader(editor, mjmlData);
     // mjml1Column
     let mjml1Column = require('./components/mjml1Column');
     mjml1Column(editor, mjmlData);

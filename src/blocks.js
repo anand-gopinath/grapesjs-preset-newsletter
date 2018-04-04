@@ -1,18 +1,8 @@
 define(function() {
   return (opt = {}) => {
     let mjmlData = require('./constants')();
-    // let tableStyleStr = '';
-    // let cellStyleStr = '';
     let editor = opt.editor;
-    // let tableStyle = opt.tableStyle || {};
-    // let cellStyle = opt.cellStyle || {};
     let bm = editor.BlockManager;
-    // for (let prop in tableStyle){
-    //   tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
-    // }
-    // for (let prop in cellStyle){
-    //   cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
-    // }
     bm.getAll().reset();
     
     bm.add('mjmlButton', {
@@ -95,22 +85,15 @@ define(function() {
       //   style: {color:'#3b97e3'}
       // },
     });
-    // bm.add('link-block', {
-    //   label: opt.linkBlockBlkLabel,
-    //   category: 'Content' || opt.categoryLabel,
-    //   attributes: {class:'fa fa-link'},
-    //   content: {
-    //     type: 'link',
-    //     editable: false,
-    //     droppable: true,
-    //     style: {
-    //       display: 'inline-block',
-    //       padding: '5px',
-    //       'min-height': '50px',
-    //       'min-width': '50px'
-    //     }
-    //   },
-    // });
+    bm.add('image-header', {
+      label: 'Header Image',
+      category: 'Content' || opt.categoryLabel,
+      attributes: {class:'fa fa-picture-o'},
+      content: {
+        type: 'mjmlHeader',
+        activeOnRender: 1,
+      },
+    });
 
     // mjml 1 column
     bm.add('sect100', {

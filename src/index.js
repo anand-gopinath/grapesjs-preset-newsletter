@@ -6,7 +6,6 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let c = opts || {};
   let config = editor.getConfig();
   let pfx = config.stylePrefix;
-
   let defaults = {
     editor,
     pfx: pfx || '',
@@ -67,10 +66,11 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     /**
      * Removed unused styles
      */
-    styleManagerSectors: [{
+    styleManagerSectors: [
+      {
         name: 'Dimension',
         open: true,
-        buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'], //'margin', 'padding'
+        buildProps: ['margin', 'padding'], //'margin', 'padding'
         properties:[{
           property: 'margin',
           properties:[
@@ -93,23 +93,13 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
       {
         name: 'Typography',
         open: false,
-        buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'align', 'text-decoration'], //'line-height', 'font-weight', 'letter-spacing'  //'text-decoration', 'font-style', 'vertical-align', 'text-shadow'
+        buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-align', 'text-decoration'], //'line-height', 'font-weight', 'letter-spacing'  //'text-decoration', 'font-style', 'vertical-align', 'text-shadow'
         properties:[
           { name: 'Font', property: 'font-family'},
           { name: 'Weight', property: 'font-weight'},
           { name:  'Font color', property: 'color'},
           {
             property: 'text-align',
-            type: 'radio',
-            defaults: 'left',
-            list: [
-              { value : 'left',  name : 'Left',    className: 'fa fa-align-left'},
-              { value : 'center',  name : 'Center',  className: 'fa fa-align-center' },
-              { value : 'right',   name : 'Right',   className: 'fa fa-align-right'},
-              { value : 'justify', name : 'Justify',   className: 'fa fa-align-justify'}
-            ],
-          },{
-            property: 'align',
             type: 'radio',
             defaults: 'left',
             list: [
@@ -132,16 +122,7 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
       {
         name: 'Decorations',
           open: false,
-          buildProps: [ 'background-color', 'border-radius'],
-          properties: [{
-            property: 'border-radius',
-            properties  : [
-              { name: 'Top', property: 'border-top-left-radius'},
-              { name: 'Right', property: 'border-top-right-radius'},
-              { name: 'Bottom', property: 'border-bottom-left-radius'},
-              { name: 'Left', property: 'border-bottom-right-radius'}
-            ],
-          }],
+          buildProps: [ 'background-color']
         }]
   };
 
@@ -188,21 +169,16 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
   let importStyle = require('./style');
   importStyle(c);
 
-
- 
-
   // Set default template if the canvas is empty
   if(!editor.getHtml() && c.defaultTemplate){
     editor.setComponents(c.defaultTemplate);
-
     // Init components for Undo Manager
     editor.editor.initChildrenComp(editor.DomComponents.getWrapper());
   }
 
-  // On component change show the Style Manager
+  //On component change show the Style Manager
   editor.on('change:selectedComponent', function() {
     let openLayersBtn = editor.Panels.getButton('views', 'open-layers');
-
     // Don't switch when the Layer Manager is on or
     // there is no selected component
     if((!openLayersBtn || !openLayersBtn.get('active')) &&
@@ -213,30 +189,65 @@ export default grapesjs.plugins.add('gjs-preset-newsletter', (editor, opts) => {
     }
   });
 
+  //Need to be used in future
+
   // editor.on('component:styleUpdate:text-align', function(model) {
-  //   console.log("hai----in styleupdate", editor, model);
-  //   if(model.changed["style"] && model.changed.style.hasOwnProperty("text-align")) {
-  //     let $selectedComponent = editor.getSelected().view.$el[0];
-  //     let $buttonComponent = $selectedComponent.getElementsByClassName("mjmlButton");
-  //     //Button component
-  //     if($buttonComponent.length > 0) {
-  //       let alignment = model.changed.style["text-align"];
-  //       editor.getSelected().attributes.components.models[0].attributes.components.models[0].attributes.attributes.align = alignment;
-  //       // editor.getSelected().attributes.components.models[0].attributes.style.float = alignment;
-  //     }
+  //   console.log("hai----in styleupdate", model);
+  //   let $selectedComponent = editor.getSelected().view.$el[0];
+  //   let $buttonComponent = $selectedComponent.getElementsByClassName("mjmlButton");
+  //   let alignment = model.changed["style"] && model.changed.style.hasOwnProperty("text-align") ? model.changed.style["text-align"] : "center";
+
+  //   if(alignment && $buttonComponent.length > 0) {
+  //     let alignment = model.changed.style["text-align"] ? model.changed.style["text-align"] : "center";
+  //     let parent = editor.getSelected().parent();
+  //     var attr = parent.getAttributes(); // working
+  //     attr.align= alignment;
+  //     parent.setAttributes(attr);
   //   }
+  //   // if() {
+  //   //   
+  //   //   //Button component
+  //   //   if($buttonComponent.length > 0) {
+  //   //     let alignment = model.changed.style["text-align"];
+  //   //     // this.model.set('style', {'background-color': this.randomHex()}) // <- Affects the final HTML code
+  //   //       let parent = editor.getSelected().parent();
+  //   //       var attr = parent.getAttributes(); // working
+  //   //       attr.align= "right";
+  //   //       parent.setAttributes(attr);
+  //   //     // let currModel = editor.getSelected().attributes.components.models[0].attributes.components.models[0]
+          
+  //   //     // this.model.set('style', {'background-color': 'green'}); // <- Affects the final HTML code
+  //   //     //  currModel.setAttributes({id: 'align', 'data-key': 'left'});
+  //   //     // currentModel.setAttributes('style', {'background-color': 'green'})
+  //   //     // .setAttributes({id: 'align', 'data-key': ''+alignment});
+  //   //     // model.attributes.components.models[0].attributes.attributes.align = "left"
+  //   //       // this.el.getElementsByClassName("mjmlButton")[0].align = "left";
+  //   //     //editor.getSelected().attributes.components.models[0].attributes.components.models[0].attributes.attributes.align = alignment;
+  //   //     //editor.getSelected().attributes.components.models[0].attributes.components.models[0].view.el.align = alignment;
+  //   //     //editor.getSelected().attributes.components.models[0].attributes.style.float = alignment;
+  //   //   }
+  //   // }
   // });
   
   editor.on('run:open-assets', () => {
     const modal = editor.Modal;
     modal.setTitle(defaults.assetsModalTitle);
   })
-
+ 
+  // editor.on('canvas:drop', (DTInstance, droppedModel) => {
+  //   console.log("hey iam in drop", DTInstance, droppedModel)
+  //   if(droppedModel.view.el.className === "mjComponentDrop") {
+  //     let parentElement = droppedModel.parent().view.$el[0];
+  //     let dropPlaceHolder = parentElement.getElementsByClassName("dropElementsSection");
+  //     if(dropPlaceHolder.length > 0) {
+  //       dropPlaceHolder[0].remove();
+  //     }
+  //   }
+  // });
+ 
 
   // Do stuff on load
   editor.on('load', function() {
-    editor.DomComponents.getComponent("open-sm").attributes.content = "hai"
-
     let expTplBtn = editor.Panels.getButton('options', 'export-template');
     expTplBtn.set('attributes', {
       title: defaults.expTplBtnTitle

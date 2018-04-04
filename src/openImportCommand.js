@@ -38,6 +38,7 @@ define(function() {
     });
     return {
       run(editor, sender) {
+        console.log("in openImport")
         let storageManager = editor.StorageManager;
         let md = editor.Modal;
         let modalContent = md.getContentEl();

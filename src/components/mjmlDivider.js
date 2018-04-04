@@ -21,11 +21,12 @@ define(function () {
           // // Traits (Settings)
           classes: ['mjComponentDrop'],
           traits: [],
-          stylable: [
-            'background-color', 'vertical-align', 'width',
-            'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'border-bottom-left-radius', 'border-bottom-right-radius',
-            'border', 'border-width', 'border-style', 'border-color',
-          ],
+          // stylable: [
+          //   'background-color', 'vertical-align', 'width',
+          //   'border-radius', 'border-top-left-radius', 'border-top-right-radius', 'border-bottom-left-radius', 'border-bottom-right-radius',
+          //   'border', 'border-width', 'border-style', 'border-color',
+          // ],
+          'unstylable': ['background-color'], 
           components: mjmlData.mjmlDivider
 
         }),
